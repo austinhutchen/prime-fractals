@@ -28,7 +28,7 @@ fn printdivisors(i: usize){
             print!("{i} ,");
         }
     }
-    println!(" ");
+
 
 }
 fn main() {
@@ -46,6 +46,7 @@ let mut limit = primegen();
         }
         else{
             printdivisors(x);
+            println!(" ");
         }
     }
 
