@@ -29,7 +29,7 @@ fn main() {
         println!("");
         if isprime(x) {
             for z in 0..x {
-                print!("*");
+                print!("{x}");
                 for y in 0..z {
                     print!(" ")
                 }
