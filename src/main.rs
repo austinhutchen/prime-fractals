@@ -2,12 +2,12 @@ use std::usize;
 
 use rand::{self, Rng};
 
-fn prime() -> usize {
+fn primegen() -> usize {
     let rand: usize = rand::thread_rng().gen_range(2..1500);
     // sieve method for small prime gaps.. for larger sampling sizes more complex gap analysis is needed
     for x in 2..(rand / 2) {
         if rand % x == 0 {
-            return prime();
+            return primegen();
         }
     }
     // n2 is prime after making it through all numbers previous on [2,n2/2]
@@ -22,18 +22,30 @@ fn isprime(i: usize) -> bool {
 
     return true;
 }
+fn printdivisors(i: usize){
+    for x in 2..(i / 2) {
+        if i % x == 0 {
+            print!("{i} ,");
+        }
+    }
+    println!(" ");
+
+}
 fn main() {
     println!("< WELCOME TO ART GENERATOR 3000!");
-
-    for x in 1..prime() {
+let mut limit = primegen();
+    for x in 1..limit {
         println!("");
         if isprime(x) {
-            for z in 0..x {
-                print!("{x}");
+            for z in 0..primegen() {
+                print!("{z}");
                 for y in 0..z {
                     print!(" ")
                 }
             }
+        }
+        else{
+            printdivisors(x);
         }
     }
 
