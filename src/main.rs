@@ -1,8 +1,7 @@
 use rand::{self, Rng};
 
-
 fn prime() -> usize {
- let mut rand = rand::thread_rng().gen::<usize>();
+     let rand:usize = rand::thread_rng().gen_range(0..2000);
     // sieve method for small prime gaps.. for larger sampling sizes more complex gap analysis is needed
     for x in 2..(rand / 2) {
         if rand % x == 0 {
