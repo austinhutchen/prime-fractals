@@ -25,7 +25,7 @@ fn isprime(i: usize) -> bool {
 fn printdivisors(i: usize){
     for x in 2..(i / 2) {
         if i % x == 0 {
-            print!("{i} ,");
+            print!("{x} ,");
         }
     }
 
