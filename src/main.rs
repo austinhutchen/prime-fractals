@@ -1,3 +1,5 @@
+use std::usize;
+
 use rand::{self, Rng};
 
 fn prime() -> usize {
@@ -11,7 +13,15 @@ fn prime() -> usize {
     // n2 is prime after making it through all numbers previous on [2,n2/2]
     return rand;
 }
+fn isprime( i:usize) ->bool{
+    for x in 2..(i / 2) {
+        if i % x == 0 {
+            return false;
+        }
+    }
 
+return true;
+}
 fn main() {
     println!("----F(X) LOADING----");
     println!("< WELCOME TO ART GENERATOR 3000!");
@@ -19,12 +29,15 @@ fn main() {
     let bound = prime();
     for x in 1..prime() {
         println!("");
-        for z in 0..x {
-            print!("*");
-            for y in 0..x {
-                print!(" ")
+        if(isprime(x)){
+            for z in 0..x {
+                print!("*");
+                for y in 0..x {
+                    print!(" ")
+                }
             }
         }
+
     }
 
     println!("");
