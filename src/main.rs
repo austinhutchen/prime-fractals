@@ -22,29 +22,29 @@ fn isprime(i: usize) -> bool {
 
     return true;
 }
-fn printdivisors(i: usize){
+fn printdivisors(i: usize) {
     for x in 2..(i / 2) {
         if i % x == 0 {
             print!("{x} ,");
         }
     }
-
-
 }
 fn main() {
     println!("< WELCOME TO ART GENERATOR 3000!");
-let mut limit = primegen();
+    let limit = primegen();
     for x in 1..limit {
         println!("");
         if isprime(x) {
+            print!("✪");
+            // prime numbers only
             for z in 0..primegen() {
                 print!("{z}");
                 for y in 0..z {
                     print!(" ")
                 }
             }
-        }
-        else{
+        } else {
+            // not prime
             printdivisors(x);
             println!(" ");
         }
@@ -54,3 +54,4 @@ let mut limit = primegen();
     println!("DONE");
     return;
 }
+ 
