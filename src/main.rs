@@ -29,31 +29,47 @@ fn printdivisors(i: usize) {
         }
     }
 }
+
+fn shapegen(mut max: usize) {
+    let mut rand: usize = rand::thread_rng().gen_range(2..3000);
+    max = max << 1;
+    if rand < 1 {
+        // circle
+        for z in 0..max {
+            rand = max % primegen();
+            for y in 0..z {
+                print!(" ")
+            }
+            print!("{rand}");
+        }
+    } else {
+        // square
+        for z in 0..max {
+            rand = max % primegen();
+            for y in 0..z {
+                print!(" ")
+            }
+            print!("{rand}");
+        }
+    }
+}
 fn main() {
     println!("< WELCOME TO PRIME ART GENERATOR 3000!");
     let limit = primegen();
-    for x in 1..limit {
-        println!("");
-        if isprime(x) {
-            print!("✪");
-            // prime numbers only
-            for z in 0..x {
-                let rand = x%primegen();
-                for y in 0..z {
-                    print!(" ")
-                }
-                print!("{rand}");
-                
+    let mut i:usize=0;
+    while(i<3) {
+        for x in 1..limit {
+            println!("");
+            if isprime(x) {
+                print!("✪");
+                shapegen(x);
+                // prime numbers only
+            } else {
+                // not prime
+                printdivisors(x);
+                println!(" ");
             }
-        } else {
-            // not prime
-            printdivisors(x);
-            println!(" ");
         }
+        i=i+1;
     }
-
-    println!("");
-    println!("DONE");
-    return;
 }
- 
