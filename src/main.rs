@@ -1,17 +1,16 @@
-use core::rand::rng;
+use rand::{self, Rng};
 
-fn prime() -> u8 {
-    let mut rng = rand::rng();
-    let n2: u8 = rng.gen_range(0..1500);
 
-    n2 = rng.gen();
-    for x in 2..(n2 / 2) {
-        if n2 % x == 0 {
+fn prime() -> usize {
+ let mut rand = rand::thread_rng().gen::<usize>();
+    // sieve method for small prime gaps.. for larger sampling sizes more complex gap analysis is needed
+    for x in 2..(rand / 2) {
+        if rand % x == 0 {
             return prime();
         }
     }
     // n2 is prime after making it through all numbers previous on [2,n2/2]
-    return n2;
+    return rand;
 }
 
 fn main() {
