@@ -1,2 +1,2 @@
 # prime-patterns
-rust program that generates command-line output based on prime number algorithms!
+rust program that generates command-line graphs of patterns based on prime number algorithms!
