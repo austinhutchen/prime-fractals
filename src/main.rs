@@ -30,18 +30,20 @@ fn printdivisors(i: usize) {
     }
 }
 fn main() {
-    println!("< WELCOME TO ART GENERATOR 3000!");
+    println!("< WELCOME TO PRIME ART GENERATOR 3000!");
     let limit = primegen();
     for x in 1..limit {
         println!("");
         if isprime(x) {
             print!("✪");
             // prime numbers only
-            for z in 0..primegen() {
-                print!("{z}");
+            for z in 0..x {
+                let rand = x%primegen();
                 for y in 0..z {
                     print!(" ")
                 }
+                print!("{rand}");
+                
             }
         } else {
             // not prime
