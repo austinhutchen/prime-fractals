@@ -1,7 +1,7 @@
 use rand::{self, Rng};
 
 fn prime() -> usize {
-     let rand:usize = rand::thread_rng().gen_range(0..2000);
+     let rand:usize = rand::thread_rng().gen_range(0..1000);
     // sieve method for small prime gaps.. for larger sampling sizes more complex gap analysis is needed
     for x in 2..(rand / 2) {
         if rand % x == 0 {
@@ -17,10 +17,10 @@ fn main() {
     println!("< WELCOME TO ART GENERATOR 3000!");
 
     let bound = prime();
-    for x in 1..bound {
+    for x in 1..prime() {
         println!("");
-        for z in 0..x {
-            for y in 0..z {
+        for z in 0..prime() {
+            for y in 0..prime() {
                 print!(" ")
             }
             print!("*");
