@@ -31,14 +31,17 @@ fn printdivisors(i: usize) {
 }
 
 fn shapegen(mut max: usize) {
-    let mut rand: usize = rand::thread_rng().gen_range(2..3000);
+    let bound: usize = 3000;
+    let mut rand: usize = rand::thread_rng().gen_range(2..bound);
     max = max << 1;
-    if rand < 1 {
+    if rand < bound / 2 {
         // circle
         for z in 0..max {
             rand = max % primegen();
-            for y in 0..z {
-                print!(" ")
+            let mut y: usize = 0;
+            while y < z {
+                print!(" ");
+                y = y + 1;
             }
             print!("{rand}");
         }
@@ -46,8 +49,10 @@ fn shapegen(mut max: usize) {
         // square
         for z in 0..max {
             rand = max % primegen();
-            for y in 0..z {
-                print!(" ")
+            let mut y: usize = 0;
+            while y < z {
+                print!(" ");
+                y = y + 1;
             }
             print!("{rand}");
         }
@@ -56,8 +61,8 @@ fn shapegen(mut max: usize) {
 fn main() {
     println!("< WELCOME TO PRIME ART GENERATOR 3000!");
     let limit = primegen();
-    let mut i:usize=0;
-    while(i<3) {
+    let mut i: usize = 0;
+    while i < 3 {
         for x in 1..limit {
             println!("");
             if isprime(x) {
@@ -70,6 +75,6 @@ fn main() {
                 println!(" ");
             }
         }
-        i=i+1;
+        i = i + 1;
     }
 }
