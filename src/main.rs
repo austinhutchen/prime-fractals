@@ -1,19 +1,19 @@
-mod components;
+mod helpers;
 
 fn main() {
     println!("< WELCOME TO PRIME ART GENERATOR 3000!");
-    let limit = components::primegen();
+    let limit = helpers::primegen();
     let mut i: usize = 0;
     while i < 3 {
         for x in 1..limit {
             println!("");
-            if components::isprime(x) {
+            if helpers::isprime(x) {
                 print!("✪");
-                components::shapegen(x);
+                helpers::shapegen(x);
                 // prime numbers only
             } else {
                 // not prime
-                components::printdivisors(x);
+                helpers::printdivisors(x);
                 println!(" ");
             }
         }
