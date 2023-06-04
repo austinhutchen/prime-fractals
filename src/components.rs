@@ -37,7 +37,7 @@ pub fn shapegen(mut max: usize) {
     if rand < bound / 2 {
         // circle
         for z in 0..max {
-            rand = max % primegen();
+            rand = z % primegen();
             let mut y: usize = 0;
             while y < z {
                 print!(" ");
