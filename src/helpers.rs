@@ -29,32 +29,27 @@ pub fn printdivisors(i: usize) {
         }
     }
 }
+pub fn fractal(max:usize){
+    for z in 0..max {
+        let rand = max % primegen();
+        let mut y: usize = 0;
+        while y < z {
+            print!(" ");
+            y = y + 1;
+        }
+        print!("{rand}");
+    }
 
+}
 pub fn shapegen(mut max: usize) {
     let bound: usize = 3000;
-    let mut rand: usize = rand::thread_rng().gen_range(2..bound);
+    let  rand: usize = rand::thread_rng().gen_range(2..bound);
     max = max << 1;
     if rand < bound / 2 {
         // circle
-        for z in 0..max {
-            rand = z % primegen();
-            let mut y: usize = 0;
-            while y < z {
-                print!(" ");
-                y = y + 1;
-            }
-            print!("{rand}");
-        }
+        
     } else {
-        // square
-        for z in 0..max {
-            rand = max % primegen();
-            let mut y: usize = 0;
-            while y < z {
-                print!(" ");
-                y = y + 1;
-            }
-            print!("{rand}");
-        }
+        // prints a fractal output to command line with size max
+       fractal(max);
     }
 }
