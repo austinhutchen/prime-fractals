@@ -1,22 +1,20 @@
-mod helpers;
+
+mod lib;
 
 fn main() {
     println!("< WELCOME TO PRIME ART GENERATOR 3000!");
-    let limit = helpers::primegen();
+    let limit = lib::getprimes();
     let mut i: usize = 0;
     while i < 3 {
-        for x in 1..limit {
+        for x in 1..limit.len() {
+            let val :u64 = limit[x];
             println!("");
-            if helpers::isprime(x) {
-                print!("✪");
-                helpers::shapegen(x);
-                // prime numbers only
-            } else {
                 // not prime
-                helpers::printdivisors(x);
+                print!("{val}");
                 println!(" ");
+                lib::fractal(limit.len());
             }
+            i = i + 1;
         }
-        i = i + 1;
-    }
+        
 }
