@@ -2,7 +2,7 @@
 
 pub fn getprimes()-> Vec<u64> {
  let mut primes = vec![2];
- let maximum: u64 = 1000000;
+ let maximum: u64 = 100000;
 
  for candidate in 3..maximum {
      let square_root = (candidate as f64).sqrt() as u64 + 1;
