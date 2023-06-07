@@ -11,6 +11,7 @@ fn main() {
                 print!("{val}");
                 println!(" ");
                 lib::fractal(limit.len());
+                lib::printdivisors(x);
             }
         
         
