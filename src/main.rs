@@ -10,7 +10,7 @@ fn main() {
                 // not prime
                 print!("{val}");
                 println!(" ");
-                lib::fractal(limit.len());
+                lib::shapegen(limit.len());
                 lib::printdivisors(x);
             }
         

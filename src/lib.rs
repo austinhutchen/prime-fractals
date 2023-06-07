@@ -2,7 +2,7 @@
 
 pub fn getprimes()-> Vec<u64> {
  let mut primes = vec![2];
- let maximum: u64 = 100000;
+ let maximum: u64 = 10000;
 
  for candidate in 3..maximum {
      let square_root = (candidate as f64).sqrt() as u64 + 1;
@@ -33,15 +33,7 @@ pub fn primegen() -> usize {
     // n2 is prime after making it through all numbers previous on [2,n2/2]
     return rand;
 }
-pub fn isprime(i: usize) -> bool {
-    for x in 2..(i / 2) {
-        if i % x == 0 {
-            return false;
-        }
-    }
 
-    return true;
-}
 pub fn printdivisors(i: usize) {
     for x in 2..(i / 2) {
         if i % x == 0 {
