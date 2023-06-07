@@ -1,3 +1,23 @@
+
+
+pub fn getprimes()-> Vec<u64> {
+ let mut primes = vec![2];
+ let maximum: u64 = 100000;
+
+ for candidate in 3..maximum {
+     let square_root = (candidate as f64).sqrt() as u64 + 1;
+     let is_prime = primes
+         .iter()
+         .take_while(|p| p <= &&square_root)
+         .all(|p| candidate % p != 0);
+     if is_prime {
+         primes.push(candidate);
+     }
+ }
+ return primes;
+}
+
+
 use std::usize;
 
 use rand::{self, Rng};
@@ -47,7 +67,8 @@ pub fn shapegen(mut max: usize) {
     max = max << 1;
     if rand < bound / 2 {
         // circle
-        
+        fractal(max);
+
     } else {
         // prints a fractal output to command line with size max
        fractal(max);
