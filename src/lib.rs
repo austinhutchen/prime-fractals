@@ -41,6 +41,7 @@ pub fn printdivisors(i: usize) {
         }
     }
 }
+
 pub fn fractal(max:usize){
     for z in 0..max {
         let rand = max % primegen();
@@ -53,6 +54,7 @@ pub fn fractal(max:usize){
     }
 
 }
+
 pub fn shapegen(mut max: usize) {
     let bound: usize = 3000;
     let  rand: usize = rand::thread_rng().gen_range(2..bound);
