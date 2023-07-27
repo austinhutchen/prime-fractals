@@ -1,22 +1,19 @@
+pub fn getprimes() -> Vec<u64> {
+    let mut primes = vec![2];
+    let maximum: u64 = 10000;
 
-
-pub fn getprimes()-> Vec<u64> {
- let mut primes = vec![2];
- let maximum: u64 = 10000;
-
- for candidate in 3..maximum {
-     let square_root = (candidate as f64).sqrt() as u64 + 1;
-     let is_prime = primes
-         .iter()
-         .take_while(|p| p <= &&square_root)
-         .all(|p| candidate % p != 0);
-     if is_prime {
-         primes.push(candidate);
-     }
- }
- return primes;
+    for candidate in 3..maximum {
+        let square_root = (candidate as f64).sqrt() as u64 + 1;
+        let is_prime = primes
+            .iter()
+            .take_while(|p| p <= &&square_root)
+            .all(|p| candidate % p != 0);
+        if is_prime {
+            primes.push(candidate);
+        }
+    }
+    return primes;
 }
-
 
 use std::usize;
 
@@ -42,7 +39,7 @@ pub fn printdivisors(i: usize) {
     }
 }
 
-pub fn fractal(max:usize){
+pub fn fractal(max: usize) {
     for z in 0..max {
         let rand = max % primegen();
         let mut y: usize = 0;
@@ -52,19 +49,17 @@ pub fn fractal(max:usize){
         }
         print!("{rand}");
     }
-
 }
 
 pub fn shapegen(mut max: usize) {
     let bound: usize = 3000;
-    let  rand: usize = rand::thread_rng().gen_range(2..bound);
+    let rand: usize = rand::thread_rng().gen_range(2..bound);
     max = max << 1;
     if rand < bound / 2 {
         // circle
         fractal(max);
-
     } else {
         // prints a fractal output to command line with size max
-       fractal(max);
+        fractal(max);
     }
 }
